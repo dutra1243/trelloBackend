@@ -10,7 +10,7 @@ let tasks = [
     assignedTo: "Rodrigo Lujambio",
     startDate: "01/01/2024",
     endDate: "31/12/2024",
-    status: "To Do",
+    status: "to-do",
     priority: "Low",
     comments: [],
   },
@@ -21,7 +21,7 @@ let tasks = [
     assignedTo: "Michel Sampil",
     startDate: "01/01/2024",
     endDate: "31/12/2024",
-    status: "In Progress",
+    status: "in-progress",
     priority: "Medium",
     comments: [],
   },
@@ -32,7 +32,7 @@ let tasks = [
     assignedTo: "Jose Abadie",
     startDate: "01/01/2024",
     endDate: "31/12/2024",
-    status: "Done",
+    status: "done",
     priority: "High",
     comments: [],
   },
@@ -46,7 +46,7 @@ router.get("/tasks", (req, res) => {
 // POST a new task
 router.post("/tasks", (req, res) => {
   const task = req.body;
-  task.id = (tasks.length + 1).toString();
+  task.id = (parseInt(tasks[tasks.length - 1].id) + 1).toString();
   tasks.push(task);
   res.status(201).json(task);
 });
